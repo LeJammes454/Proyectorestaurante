@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+        background: url(../img/fondAzul.jpg);
+		background-size: 17vw;
+		background-repeat: repeat;
+		background-attachment: fixed;
+}
+header{
+    height: 100px;
+    background-color: rgb(68, 70, 73);
+    padding: 0px 50px;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.index-logo{
+    text-transform: uppercase;
+    color: rgba(255, 175, 1, 0.959);
+    font-weight: 200;
+}
+.menu a{
+    color: rgb(47, 48, 49);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+    transition: 0.4s;
+}
+.mostrar-menu,
+.esconder-menu{
+font-size: 30px;
+cursor: pointer;
+transition: 0.4s;
+display: none;
+}
+.mostrar-menu{
+    order: 1;
+}
+.menu a:hover,
+.mostrar-menu:hover,
+.esconder-menu:hover{
+    background-color: rgba(255, 175, 1, 0.959);
+}
+#check{
+    display: none;
+}
+#catalogo{
+    padding: 50px 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#catalogo img{
+    width: 50px;
+}
+#catalogo div{
+ background-color: aliceblue;
+ padding: 30px;
+ margin: 10px;
+ border-radius: 10px;
+ -webkit-box-shadow: 10px 9.5px 8px -1.5px rgba(0, 0, 0, 0.23);
+-moz-box-shadow: 10px 9.5px 8px -1.5px rgba(0, 0, 0, 0.23);
+box-shadow: 10px 9.5px 8px -1.5px rgba(0, 0, 0, 0.23);
+}
+#catalogo div h4{
+    color: #4d4d5c;
+    font-size: 20px;
+    margin: 15px 0px;
+}
+#catalogo div p{
+    color: #4d4d5c78;
+    font-size: 20px;
+
+}
+/* Responsive*/
+@media(max-width:760px) {
+    .mostrar-menu,
+    .esconder-menu{
+        display: block;
+    }
+    .menu{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgba(228, 166, 33, 0.849);
+        right: -100%;
+        top: 0;
+        text-align: center;
+        padding: 100px 0px;
+        z-index: 100;
+        transition: 0.8s;
+    }
+    .menu a{
+        display: block;
+        padding: 30px;
+    }
+    .esconder-menu{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+    #check:checked ~ .menu{
+        right: 0;
+    }
+    body{
+        background: url(../img/fondAzul.jpg);
+		background-size: 45vw ;
+		background-repeat: repeat;
+		background-attachment: fixed;
+    }
+    #catalogo{
+        flex-direction: column;
+    }
+
+}
