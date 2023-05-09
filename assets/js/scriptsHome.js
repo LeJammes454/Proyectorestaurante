@@ -46,6 +46,34 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Lógica de registro (ej. enviar datos al servidor)
+        // Envía los datos del formulario al servidor usando AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'assets/php/register.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function () {
+            if (this.status === 200) {
+                const response = JSON.parse(this.responseText);
+
+                if (response.status === 'success') {
+                    // Limpia el formulario y cierra el modal
+                    signUpForm.reset();
+                    signUpModal.hide();
+
+                    // Muestra un mensaje de éxito
+                    alert(response.message);
+                } else {
+                    // Muestra un mensaje de error
+                    alert(response.message);
+                }
+            } else {
+                alert('Error al enviar los datos del formulario.');
+            }
+        };
+
+        const data = `name=${encodeURIComponent(document.getElementById('signupName').value)}&address=${encodeURIComponent(document.getElementById('signupAddress').value)}&email=${encodeURIComponent(document.getElementById('signupEmail').value)}&phone=${encodeURIComponent(document.getElementById('signupPhone').value)}&password=${encodeURIComponent(document.getElementById('signupPassword').value)}`;
+
+        xhr.send(data);
     });
 
 
