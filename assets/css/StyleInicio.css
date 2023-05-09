@@ -1,0 +1,31 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    background-color: #222;
+    color: #eee;
+}
+
+.dark-mode .navbar {
+    background-color: #333;
+}
+
+.dark-mode .carousel-inner img {
+    filter: brightness(0.8);
+}
+
+.navbar .d-flex {
+    margin-left: auto;
+}
