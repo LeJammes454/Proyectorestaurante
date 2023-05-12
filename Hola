@@ -1,1 +1,12 @@
 
+<div class="card">
+                    <img src="imagen_del_platillo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre del platillo</h5>
+                        <p class="card-text">Descripción del platillo.</p>
+                        <p class="card-text">Precio: $00.00</p>
+                        <p class="card-text">Calificación: ★★★★☆</p>
+                        <button class="btn btn-primary" onclick="agregarCarrito()">Agregar al carrito</button>
+                        <button class="btn btn-outline-danger" onclick="marcarFavorito()">♥</button>
+                    </div>
+                </div>

@@ -1,16 +1,73 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el modo oscuro */
 body.dark-mode {
-    background-color: black;
-    color: white;
+    background-color: #222;
+    color: #eee;
 }
 
-body.dark-mode nav {
-    background-color: #343a40;
-    color: white;
+.dark-mode .navbar {
+    background-color: #333;
 }
 
-body.dark-mode .navbar-brand,
-body.dark-mode .navbar-nav .nav-link {
-    color: white;
+.dark-mode .carousel-inner img {
+    filter: brightness(0.8);
 }
 
-/* Agrega reglas similares para otros elementos según tus necesidades */
+.navbar .d-flex {
+    margin-left: auto;
+}
+
+/* Estilos para el modo oscuro en el modal */
+.dark-mode .modal-content {
+    background-color: #333;
+    color: #eee;
+}
+
+.dark-mode .form-control {
+    background-color: #444;
+    color: #eee;
+    border-color: #555;
+}
+
+.dark-mode .form-control:focus {
+    border-color: #777;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+.card.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.card.dark-mode .card-title,
+.card.dark-mode .card-text,
+.card.dark-mode strong {
+    color: #fff;
+}
+.card-img-top {
+    height: 200px; /* Ajusta este valor de las imagenes */
+    object-fit: cover;
+}
+
+.offcanvas.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.offcanvas.dark-mode .offcanvas-header {
+    background-color: #222;
+    color: #fff;
+}

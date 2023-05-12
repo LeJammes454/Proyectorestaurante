@@ -10,5 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
         nav.classList.toggle('navbar-dark');
         nav.classList.toggle('bg-light');
         nav.classList.toggle('navbar-light');
+
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.classList.toggle('dark-mode');
+        });
+
+        const offcanvas = document.getElementById('offcanvasRight');
+        offcanvas.classList.toggle('dark-mode');
     });
+
 });
