@@ -1,18 +1,14 @@
-// Añade esto en el archivo scripts.js
-function agregarCarrito() {
-    // Implementa la funcionalidad para agregar platillos al carrito.
-    // Por ejemplo, añadir elementos a la lista desplegable.
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const darkModeSwitch = document.getElementById('darkModeSwitch');
 
-function marcarFavorito() {
-    // Implementa la funcionalidad para marcar un platillo como favorito.
-}
+    // Escucha el cambio de estado del botón de alternancia
+    darkModeSwitch.addEventListener('change', function () {
+        document.body.classList.toggle('dark-mode');
 
-document.getElementById("darkModeSwitch").addEventListener("change", function () {
-    document.body.classList.toggle("dark-mode");
-    document.querySelector(".navbar").classList.toggle("dark-mode");
-    const cards = document.querySelectorAll(".card");
-    for (const card of cards) {
-        card.classList.toggle("dark-mode");
-    }
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('bg-dark');
+        nav.classList.toggle('navbar-dark');
+        nav.classList.toggle('bg-light');
+        nav.classList.toggle('navbar-light');
+    });
 });

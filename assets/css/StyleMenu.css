@@ -1,44 +1,16 @@
-/* Añade esto en el archivo styles.css */
 body.dark-mode {
-    background-color: #222;
+    background-color: black;
     color: white;
 }
 
-.navbar.dark-mode {
-    background-color: #333;
+body.dark-mode nav {
+    background-color: #343a40;
+    color: white;
 }
 
-.card.dark-mode {
-    background-color: #444;
+body.dark-mode .navbar-brand,
+body.dark-mode .navbar-nav .nav-link {
+    color: white;
 }
 
-/* Añade esto en el archivo styles.css */
-html, body {
-    height: 100%;
-}
-
-.container {
-    height: 100%;
-}
-
-.row {
-    height: 100%;
-}
-
-.sidebar {
-    position: fixed;
-    right: -250px; /* Ajusta este valor para que coincida con el ancho de la barra lateral */
-    top: 0;
-    height: 100%;
-    width: 250px; /* Ajusta este valor según el ancho deseado para la barra lateral */
-    padding: 20px;
-    transition: all 0.3s;
-}
-
-.sidebar.dark-mode {
-    background-color: #333;
-}
-
-.sidebar.show {
-    right: 0;
-}
+/* Agrega reglas similares para otros elementos según tus necesidades */
