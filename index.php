@@ -27,6 +27,7 @@
                 <input class="form-check-input" type="checkbox" id="darkModeSwitch">
                 <label class="form-check-label" for="darkModeSwitch">Modo oscuro</label>
             </div>
+            
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
@@ -52,6 +53,32 @@
 
         </div>
     </nav>
+
+    <!-- Modal de inicio de secion -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" action="assets/php/login.php" method="POST">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="loginEmail" name="correo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPassword" name="contrasena" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal de registro -->
     <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -103,13 +130,19 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/img/carrusel 1.jpeg" class="d-block w-100" alt="Comida 1">
+                <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1600" class="d-block w-100" alt="Comida 1">
             </div>
             <div class="carousel-item">
-                <img src="assets/img/carrusel 2.jpeg" class="d-block w-100" alt="Comida 2">
+                <img src="https://images.pexels.com/photos/1586942/pexels-photo-1586942.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" class="d-block w-100" alt="Comida 2">
             </div>
             <div class="carousel-item">
-                <img src="assets/img/carrusel 3.jpeg" class="d-block w-100" alt="Comida 3">
+                <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="Comida 3">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg?auto=compress&cs=tinysrgb&w=1600" class="d-block w-100" alt="Comida 3">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&w=1600" class="d-block w-100" alt="Comida 3">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
