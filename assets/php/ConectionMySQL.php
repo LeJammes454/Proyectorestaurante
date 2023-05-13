@@ -1,9 +1,10 @@
 <?php
-// classConectionMySQL.php
+
+require_once 'config_db.php';
+
+
 class ConnectionMySQL
 {
-
-    //Definicion de los atributos de la clase
     private $host;
     private $user;
     private $password;
@@ -12,56 +13,57 @@ class ConnectionMySQL
 
     public function __construct()
     {
-        ///llamada a la configuracion de la BD
-        require_once "config_db.php";
-        $this->host = HOST;
-        $this->user = USER;
-        $this->password = PASSWORD;
-        $this->database = DATABASE;
+        $this->host = DB_HOST;
+        $this->user = DB_USER;
+        $this->password = DB_PASSWORD;
+        $this->database = DB_DATABASE;
     }
 
-    public function CreateConnection()
+    public function createConnection()
     {
-        //metodo que crea y retorna la conexion a la BD
-        $this->conn = new mysqli($this->host, $this->user, $this->password, $this->database);
-        
-        // Verificar la conexión
-        if ($this->conn->connect_error) {
-            die("Error de conexión a la base de datos: " . $this->conn->connect_error);
-        } else {
-            echo "Conexión exitosa a la base de datos!";
+        $this->conn = mysqli_connect($this->host, $this->user, $this->password, $this->database);
+        if (!$this->conn) {
+            die("Error al conectar a la base de datos: " . mysqli_connect_error());
         }
     }
 
-    public function CloseConnection()
+    public function closeConnection()
     {
-        //metodo que cierra la conexion
-        $this->conn->close();
+        mysqli_close($this->conn);
     }
 
-    public function ExecuteQuery($sql)
+    public function executeQuery($query)
     {
-        //metodo que ejecuta el quiery y retorna el resultado
-        $result = $this->conn->query($sql);
+        $result = mysqli_query($this->conn, $query);
         return $result;
     }
-
-    public function GetCountAffectedRows()
-    {
-        //filas afectadas
-        return $this->conn->affected_rows;
-    }
-
-    public function GetRows($result)
-    {
-        //retorna filas
-        return $result->fetch_row();
-    }
-
-    public function SetFreeResult($result)
-    {
-        //libera la consulta
-        $result->free_result();
-    }
 }
+
+/*
+// Crear una instancia de la clase DatabaseConnection
+$dbConnection = new ConnectionMySQL();
+
+// Conectarse a la base de datos
+$dbConnection->createConnection();
+
+
+
+// Ejecutar una consulta de prueba
+$query = "SELECT * FROM PLATILLOS"; // Reemplaza 'table_name' con el nombre de una tabla existente en tu base de datos
+$result = $dbConnection->executeQuery($query);
+
+// Procesar los resultados de la consulta (ejemplo)
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        // Realizar alguna acción con los datos obtenidos
+        echo $row['nombre'] . '<br>'; // Reemplaza 'column_name' con el nombre de una columna existente en tu tabla
+    }
+} else {
+    echo "Error al ejecutar la consulta: " ;
+}
+
+// Cerrar la conexión a la base de datos
+$dbConnection->closeConnection();
+
+*/
 ?>

@@ -24,57 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ...
-    const signUpForm = document.getElementById('signUpForm');
-
-    signUpForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        // Validar que el nombre solo contenga letras
-        const name = document.getElementById('signupName').value;
-        const nameRegex = /^[a-zA-Z\s]+$/;
-        if (!nameRegex.test(name)) {
-            alert('El nombre solo puede contener letras y espacios.');
-            return;
-        }
-
-        // Validar que las contraseñas coincidan
-        const password = document.getElementById('signupPassword').value;
-        const confirmPassword = document.getElementById('signupConfirmPassword').value;
-        if (password !== confirmPassword) {
-            alert('Las contraseñas no coinciden.');
-            return;
-        }
-
-        // Lógica de registro (ej. enviar datos al servidor)
-        // Envía los datos del formulario al servidor usando AJAX
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'assets/php/register.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onload = function () {
-            if (this.status === 200) {
-                const response = JSON.parse(this.responseText);
-
-                if (response.status === 'success') {
-                    // Limpia el formulario y cierra el modal
-                    signUpForm.reset();
-                    signUpModal.hide();
-
-                    // Muestra un mensaje de éxito
-                    alert(response.message);
-                } else {
-                    // Muestra un mensaje de error
-                    alert(response.message);
-                }
-            } else {
-                alert('Error al enviar los datos del formulario.');
-            }
-        };
-
-        const data = `name=${encodeURIComponent(document.getElementById('signupName').value)}&address=${encodeURIComponent(document.getElementById('signupAddress').value)}&email=${encodeURIComponent(document.getElementById('signupEmail').value)}&phone=${encodeURIComponent(document.getElementById('signupPhone').value)}&password=${encodeURIComponent(document.getElementById('signupPassword').value)}`;
-
-        xhr.send(data);
-    });
 
 
     // ...
@@ -123,4 +72,65 @@ function checkPasswordStrength(password) {
     return strength;
 }
 
+$(document).ready(function () {
+    // Escucha el evento de envío del formulario
+    $('#signUpForm').submit(function (e) {
+        e.preventDefault(); // Evita que se envíe el formulario de forma predeterminada
+
+        // Obtén los datos del formulario
+        var formData = $(this).serialize();
+
+        // Envía la solicitud AJAX
+        $.ajax({
+            url: 'assets/php/register.php',
+            type: 'POST',
+            data: formData,
+            success: function (response) {
+                // Maneja la respuesta del servidor
+                console.log(response); // Puedes imprimir la respuesta en la consola para fines de depuración
+
+                // Realiza cualquier acción adicional según la respuesta recibida
+                if (response === 'error_correo_existente') {
+                    // Mostrar mensaje de error de correo existente
+                    var errorMensaje = $('<div class="alert alert-danger">Ya existe un usuario con el mismo correo</div>');
+                    $('#signUpForm').prepend(errorMensaje);
+
+                    // Ocultar el mensaje después de 3 segundos
+                    setTimeout(function () {
+                        errorMensaje.slideUp('slow', function () {
+                            $(this).remove();
+                        });
+                    }, 3000);
+                } else {
+                    // Mostrar mensaje de éxito u otra acción según la respuesta recibida
+                    var successMensaje = $('<div class="alert alert-success">Datos enviados correctamente</div>');
+                    $('#signUpForm').prepend(successMensaje);
+
+                    // Ocultar el mensaje después de 3 segundos
+                    setTimeout(function () {
+                        successMensaje.slideUp('slow', function () {
+                            $(this).remove();
+                        });
+
+                        // Cerrar el formulario después de 2 segundos
+                        setTimeout(function () {
+                            $('#signUpModal').modal('hide');
+                        }, 2000);
+
+                    }, 3000);
+
+                    // Limpia los campos del formulario
+                    $('#signUpForm')[0].reset();
+                }
+            },
+            error: function (xhr, status, error) {
+                // Maneja los errores de la solicitud AJAX
+                console.log(error); // Puedes imprimir el error en la consola para fines de depuración
+
+                // Mostrar mensaje de error genérico
+                $('#signUpForm').prepend('<div class="alert alert-danger">Error al enviar los datos</div>');
+            }
+        });
+    });
+});
 

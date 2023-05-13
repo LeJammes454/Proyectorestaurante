@@ -1,7 +1,8 @@
 <?php
-//creamos las variables necesarios a utilizar para la conexion
-define('HOST', 'localhost');
-define('USER', 'root');
-define('PASSWORD', 'jaime0454');
-define('DATABASE', 'PROYECTORESTAURANT');
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASSWORD', 'jaime0454');
+define('DB_DATABASE', 'PROYECTORESTAURANT');
+
 ?>

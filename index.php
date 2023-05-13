@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La mesa de los sabores</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/StyleInicio.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -20,8 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">La mesa de los sabores</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -64,40 +61,39 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="signUpForm">
+                    <form id="signUpForm" action="assets/php/register.php" method="POST">
                         <div class="mb-3">
                             <label for="signupName" class="form-label">Nombre completo</label>
-                            <input type="text" class="form-control" id="signupName" required>
+                            <input type="text" class="form-control" id="signupName" name="nombre" required>
                         </div>
                         <div class="mb-3">
                             <label for="signupAddress" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" id="signupAddress" required>
+                            <input type="text" class="form-control" id="signupAddress" name="direccion" required>
                         </div>
                         <div class="mb-3">
                             <label for="signupPhone" class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" id="signupPhone" pattern="[0-9]{10}" required>
+                            <input type="tel" class="form-control" id="signupPhone" name="telefono" pattern="[0-9]{10}" required>
                         </div>
                         <div class="mb-3">
                             <label for="signupEmail" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" id="signupEmail" required>
+                            <input type="email" class="form-control" id="signupEmail" name="correo" required>
                         </div>
                         <div class="mb-3">
                             <label for="signupPassword" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="signupPassword" required>
+                            <input type="password" class="form-control" id="signupPassword" name="contrasena" required>
                         </div>
                         <div class="progress mb-3">
-                            <div class="progress-bar" id="passwordStrengthBar" role="progressbar" style="width: 0%;"
-                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" id="passwordStrengthBar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <button type="button" class="btn btn-outline-secondary mb-3" id="togglePasswordVisibility">Ver
-                            contraseña</button>
+                        <button type="button" class="btn btn-outline-secondary mb-3" id="togglePasswordVisibility">Ver contraseña</button>
 
                         <div class="mb-3">
                             <label for="signupConfirmPassword" class="form-label">Confirmar contraseña</label>
-                            <input type="password" class="form-control" id="signupConfirmPassword" required>
+                            <input type="password" class="form-control" id="signupConfirmPassword" name="confirmar_contrasena" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Registrarse</button>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -116,16 +112,13 @@
                 <img src="assets/img/carrusel 3.jpeg" class="d-block w-100" alt="Comida 3">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Anterior</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
         </button>
-        <button class=" carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
+        <button class=" carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Siguiente</span>
         </button>

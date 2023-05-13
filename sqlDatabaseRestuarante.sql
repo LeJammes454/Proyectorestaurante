@@ -6,8 +6,11 @@ id int auto_increment primary key,
 nombre varchar(50) not null,
 direccion varchar(200) not null,
 telefono char(10) not null,
+email varchar(100) not null,
 contrasenia varchar(256) not null
 );
+
+INSERT INTO USUARIOS(NOMBRE,DIRECCION,TELEFONO,email,CONTRASENIA) VALUES('JAIME','INDEPENDENCIA','4434198628','juanito','1234');
 
 select * from usuarios;
 
