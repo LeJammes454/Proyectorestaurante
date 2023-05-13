@@ -8,6 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $contrasena = $_POST['contrasena'];
   $confirmar_contrasena = $_POST['confirmar_contrasena'];
 
+
+  // Encriptar la contraseña
+  $contrasena_encriptada = password_hash($contrasena, PASSWORD_DEFAULT);
+
   // Crear una conexión a la base de datos
   $mysqli = new mysqli("localhost", "root", "jaime0454", "PROYECTORESTAURANT");
 
@@ -25,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($stmt->num_rows > 0) {
     // Ya existe un usuario con el mismo correo
     echo 'error_correo_existente';
-
   } else {
     // No existe otro usuario con el mismo correo, realizar la inserción
 
@@ -38,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Asignar los valores a los parámetros de la consulta
-    $stmt->bind_param("sssss", $nombre, $direccion, $telefono, $correo, $contrasena);
+    $stmt->bind_param("sssss", $nombre, $direccion, $telefono, $correo, $contrasena_encriptada);
 
     // Ejecutar la consulta INSERT
     if ($stmt->execute()) {
