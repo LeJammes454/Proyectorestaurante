@@ -18,7 +18,7 @@ if ($result) {
         echo $row['nombre'] . '<br>'; // Reemplaza 'column_name' con el nombre de una columna existente en tu tabla
     }
 } else {
-    echo "Error al ejecutar la consulta: " . mysqli_error($dbConnection->conn);
+   // echo "Error al ejecutar la consulta: " . mysqli_error($dbConnection->conn);
 }
 
 // Cerrar la conexión a la base de datos

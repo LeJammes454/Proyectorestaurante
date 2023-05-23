@@ -154,7 +154,7 @@ $(document).ready(function () {
           data: formData,
           success: function(response) {
             // Maneja la respuesta del servidor
-            console.log(response); // Puedes imprimir la respuesta en la consola para fines de depuración
+            console.log(response); // imprimir la respuesta en la consola para fines de depuración
     
             // Realiza cualquier acción adicional según la respuesta recibida
             if (response === 'success') {
@@ -177,7 +177,7 @@ $(document).ready(function () {
           },
           error: function(xhr, status, error) {
             // Maneja los errores de la solicitud AJAX
-            console.log(error); // Puedes imprimir el error en la consola para fines de depuración
+            console.log(error); // imprimir el error en la consola para fines de depuración
     
             // Muestra un mensaje de error genérico
             $('#loginForm').prepend('<div class="alert alert-danger">Error al iniciar sesión</div>');
